@@ -1,7 +1,7 @@
 import { TouchableOpacity, View, Image, Text } from "react-native";
 import TrackPlayer from "react-native-track-player";
 const Song = ({ item, isCurrent, index }) => {
-  const { title, uri, artist, duration, filename } = item;
+  const { title, artist, duration } = item;
   return (
     <TouchableOpacity
       style={{
