@@ -34,8 +34,16 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="AllSongs">
-        <Stack.Screen name="AllSongs" component={SongsListScreen} />
-        <Stack.Screen name="NowPlaying" component={NowPlayingScreen} />
+        <Stack.Screen
+          name="AllSongs"
+          component={SongsListScreen}
+          options={{ title: "All Songs" }}
+        />
+        <Stack.Screen
+          name="NowPlaying"
+          component={NowPlayingScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -20,7 +20,7 @@ import { setupPlayer, addTracks } from "../utils/trackPlayerServices";
 import { useEffect, useState } from "react";
 import { PlayerControls, PlayPause } from "../utils/GetSongsDetails";
 
-const NowPlayingScreen = () => {
+const NowPlayingScreen = ({ navigation }) => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
   const { assets } = useSelector((state) => state.assets);
 
@@ -129,13 +129,16 @@ const NowPlayingScreen = () => {
     <SafeAreaView
       style={{ alignItems: "center", flex: 1, justifyContent: "space-evenly" }}
     >
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Image source={require("../../res/arrow.png")} />
+      </TouchableOpacity>
       <SongInfo />
       <Progress />
 
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-around",
+          justifyContent: "space-evenly",
           width: "100%",
         }}
       >

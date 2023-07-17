@@ -21,7 +21,7 @@ const Song = ({ item, isCurrent, index }) => {
           source={{
             uri: `data:image/png;base64,${item.artwork}`,
           }}
-          style={{ height: 90, width: 65, borderRadius: 10 }}
+          style={{ height: 65, width: 65, borderRadius: 10 }}
         />
         <View style={{ paddingHorizontal: 5, justifyContent: "center" }}>
           <Text style={{ fontWeight: "bold" }}>{title ? title : filename}</Text>
