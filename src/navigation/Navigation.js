@@ -23,7 +23,6 @@ const Navigation = () => {
   useEffect(() => {
     setup();
   }, []);
-
   if (!isPlayerReady) {
     return (
       <SafeAreaView>
@@ -31,11 +30,12 @@ const Navigation = () => {
       </SafeAreaView>
     );
   }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="All Songs">
-        <Stack.Screen name="All Songs" component={SongsListScreen} />
-        <Stack.Screen name="Now playing" component={NowPlayingScreen} />
+      <Stack.Navigator initialRouteName="AllSongs">
+        <Stack.Screen name="AllSongs" component={SongsListScreen} />
+        <Stack.Screen name="NowPlaying" component={NowPlayingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

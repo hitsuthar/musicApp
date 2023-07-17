@@ -1,4 +1,11 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import * as MediaLibrary from "expo-media-library";
 import MediaMeta from "react-native-media-meta";
 import TrackPlayer, {
@@ -112,7 +119,11 @@ const PlayerControls = () => {
   return (
     <View>
       <TouchableOpacity style={styles.button} onPress={PlayPause}>
-        {playerState == State.Playing ? <Text>Pause</Text> : <Text>Play</Text>}
+        {playerState == State.Playing ? (
+          <Image source={require("../../res/pause.png")} />
+        ) : (
+          <Image source={require("../../res/play.png")} />
+        )}
       </TouchableOpacity>
     </View>
   );
@@ -120,9 +131,10 @@ const PlayerControls = () => {
 
 const styles = StyleSheet.create({
   button: {
-    borderWidth: 1,
-    borderRadius: 20,
-    padding: 10,
+    // borderWidth: 1,
+    // borderRadius: 10,
+    // padding: 5,
+    margin: 3,
   },
 });
 

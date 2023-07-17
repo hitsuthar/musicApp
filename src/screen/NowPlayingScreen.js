@@ -18,7 +18,7 @@ import TrackPlayer, {
 } from "react-native-track-player";
 import { setupPlayer, addTracks } from "../utils/trackPlayerServices";
 import { useEffect, useState } from "react";
-import { PlayPause } from "../utils/GetSongsDetails";
+import { PlayerControls, PlayPause } from "../utils/GetSongsDetails";
 
 const NowPlayingScreen = () => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
@@ -106,7 +106,7 @@ const NowPlayingScreen = () => {
     };
 
     return (
-      <View style={{ alignSelf: "flex-start", paddingStart: 40 }}>
+      <View style={{ alignItems: "center" }}>
         <Image
           style={{
             height: 300,
@@ -139,20 +139,14 @@ const NowPlayingScreen = () => {
           width: "100%",
         }}
       >
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => TrackPlayer.skipToPrevious()}
-        >
-          <Text>Previous</Text>
+        <TouchableOpacity onPress={() => TrackPlayer.skipToPrevious()}>
+          <Image source={require("../../res/previous.png")} />
         </TouchableOpacity>
 
         <PlayerControls />
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => TrackPlayer.skipToNext()}
-        >
-          <Text>NEXT</Text>
+        <TouchableOpacity onPress={() => TrackPlayer.skipToNext()}>
+          <Image source={require("../../res/next.png")} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

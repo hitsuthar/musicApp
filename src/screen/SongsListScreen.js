@@ -1,16 +1,14 @@
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, ScrollView, View } from "react-native";
 import Song from "../component/Song";
-// import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import TrackPlayer, {
   Event,
   State,
   useTrackPlayerEvents,
-  usePlaybackState,
 } from "react-native-track-player";
 import Footer from "../component/Footer";
 
-const SongsListScreen = () => {
+const SongsListScreen = ({ navigation }) => {
   const [Queue, setQueue] = useState([]);
   const [currentTrack, setCurrentTrack] = useState(0);
 
@@ -30,8 +28,8 @@ const SongsListScreen = () => {
   });
 
   return (
-    <View style={{ flex: 2 }}>
-      <ScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 75 }}>
         {Queue?.map((item, index) => (
           <Song
             item={item}
@@ -41,7 +39,16 @@ const SongsListScreen = () => {
           />
         ))}
       </ScrollView>
-      <Footer />
+      {/* <View
+        style={{
+          alignSelf: "flex-end",
+          position: "absolute",
+          backgroundColor: "red",
+          // width: "100%",
+        }}
+      > */}
+      <Footer navigation={navigation} />
+      {/* </View> */}
     </View>
   );
 };
